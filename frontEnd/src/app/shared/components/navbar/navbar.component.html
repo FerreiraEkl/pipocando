@@ -1,0 +1,31 @@
+<nav>
+    <div class="container">
+        <div class="nav-wrapper">
+            <a routerLink="" class="brand-logo"><img class="header-logo" src="/assets/images/logo.png" alt=""></a>
+            <a href="#" data-target="navbar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <ng-container *ngIf="user; else elseTemplate">
+                    <li><a>{{user.userFirstName}} {{user.userLastName}}</a></li>
+                    <li *ngIf="user.userProfile === 0"><a routerLink="/admin">Administração</a></li>
+                    <li (click)="logout()"><a>Sair</a></li>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <li><a routerLink="login">Entrar</a></li>
+                    <li><a>Contato</a></li>
+                </ng-template>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<ul class="sidenav hide-on-large-only" id="navbar" #sidenav>
+    <ng-container *ngIf="user; else elseTemplate">
+        <li><a>{{user.userFirstName}} {{user.userLastName}}</a></li>
+        <li *ngIf="user.userProfile === 0"><a routerLink="/admin">Administração</a></li>
+        <li (click)="logout()"><a>Sair</a></li>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <li><a routerLink="login">Entrar</a></li>
+        <li><a>Contato</a></li>
+    </ng-template>
+</ul>

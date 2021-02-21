@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col s12">
+        <div class="input-field white-text">
+            <i class="material-icons prefix" style="color: white;">search</i>
+            <input id="search" type="text" (input)="search($event)" style="color: white; border-bottom: 1px solid white;">
+            <label for="search" style="color: white;">Procurar filmes</label>
+        </div>
+    </div>
+</div>
+<app-search class="fadeIn animated" *ngIf="searching" [seachFor]="searchFor"></app-search>
+<div class="fadeIn animated" [ngClass]="{'hidden':searching}">
+    <div *ngFor="let category of categories">
+        <app-genre-row [category]="category"></app-genre-row>
+    </div>
+</div>

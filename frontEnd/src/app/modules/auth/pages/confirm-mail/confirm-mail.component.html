@@ -1,0 +1,41 @@
+<form class="card horizontal" (ngSubmit)="onSubmit()" [formGroup]="confirmMailForm">
+    <div class="card-image hide-on-small-only">
+        <img src="/assets/images/favicon.ico">
+    </div>
+    <div class="card-stacked">
+        <div class="row">
+            <h5 class="center">
+                Foi enviado para você um email de confirmação, insira abaixo o codigo recebido.
+            </h5>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="hash" type="text" formControlName="hash">
+                    <label for="hash">Código de confirmação</label>
+                </div>
+            </div>
+            <div class=" col s12 ">
+                <div class="row">
+                    <div class="col s12 m6 mb-2">
+                        <button class="btn waves-effect waves-light col s12 red darken-2">
+                          Reenviar<i class="material-icons right ">reply</i>
+                        </button>
+                    </div>
+                    <div class="col s12 m6 mb-2">
+                        <button [disabled]="!confirmMailForm.valid" class="btn waves-effect waves-light col s12 blue darken-4" type="submit">
+                          Confirmar <i class="material-icons right ">check</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row center mb-0" style="padding: .75rem;" *ngIf="UserService.User.userFirstName">
+            <div class="col s12">
+                Já confirmou seu email? <span><a routerLink="/login">Entre</a></span>
+                <br> Ainda não tenho cadastro? <span><a routerLink="/register">Registre-se</a></span>
+            </div>
+        </div>-->
+    </div>
+</form>

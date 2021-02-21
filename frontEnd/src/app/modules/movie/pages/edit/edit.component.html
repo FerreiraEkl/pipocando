@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+<app-loading *ngIf="loading"></app-loading>
+<form class="page-wrapper fadeIn animated" [ngClass]="{'hidden':loading}" (ngSubmit)="onSubmit()" [formGroup]="movieForm">
+    <section class="page-header featured" #movieBackground>
+        <div class=" featured--vertical ">
+            <div class="featured--horizontal">
+                <div class="row container" style="margin-top: 20px">
+                    <div class="col s12" style="margin-bottom: 20px">
+                        <a routerLink="" class="btn waves-effect waves-light left red" type="button">
+                            Cancelar
+                            <i class="material-icons right">arrow_back</i>
+                        </a>
+                        <button [disabled]="!movieForm.valid" class="btn waves-effect waves-light right indigo" type="submit">
+                            Salvar
+                            <i class="material-icons right">save</i>
+                        </button>
+                    </div>
+                    <div class="col s12">
+                        <label for="picture" class="btn waves-effect waves-light right indigo lighten-1">
+                            Selecionar imagem
+                            <i class="material-icons right">photo_size_select_actual</i>
+                        </label>
+                        <input type="file" id="picture" accept="image/*" (change)="getPicture($event)" hidden>
+                    </div>
+                    <div class="col s12 m6" style="display: flex; align-items: center;">
+                        <div class="input-field col s8">
+                            <select id="classificationId" formControlName="classificationId" #movieClassification>
+                                <option *ngFor="let classification of classifications" value="{{classification.id}}">{{classification.classificationName}}</option>
+                            </select>
+                            <label for="classificationId">Classificação indicativa</label>
+                        </div>
+                        <a (click)="createClassification()" class="btn col s4 waves-effect waves-light blue darken-2">
+                            create
+                            <i class="material-icons right">add</i>
+                        </a>
+                    </div>
+                    <div class="col s12 m6" style="display: flex; align-items: center;">
+                        <div class="input-field col s8 text-white">
+                            <select id="categoryId" formControlName="categoryId" #movieCategory>
+                                      <option *ngFor="let category of categories" value="{{category.id}}">{{category.categoryName}}</option>
+                                    </select>
+                            <label for="categoryId">Categoria(Genero)</label>
+                        </div>
+                        <a (click)="createCategory()" class="btn col s4 waves-effect waves-light blue darken-2">
+                            create
+                            <i class="material-icons right">add</i>
+                        </a>
+                    </div>
+                    <div class="col s12 p-1">
+                        <div class="input-field col s12 m8">
+                            <input id="movieTitle" type="text" style="color: white;" formControlName="movieTitle">
+                            <label for="movieTitle">Titulo</label>
+                        </div>
+                        <div class="input-field col s12 m4">
+                            <input id="movieYear" style="color: white;" type="number" formControlName="movieYear">
+                            <label for="movieYear">Ano</label>
+                        </div>
+                    </div>
+                    <div class="col s12">
+                        <div class="input-field">
+                            <textarea id="movieDescription" class="materialize-textarea" style="color: white" data-length="120" formControlName="movieDescription"></textarea>
+                            <label for="movieDescription">Descrição</label>
+                        </div>
+                    </div>
+                    <div class="col s12">
+                        <div class="row">
+                            <p class="right">
+                                <label>
+                                    <input type="checkbox" formControlName="movieLocked"/>
+                                    <span>Desabilitar?</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 center">
+                                <label for="movie" class="btn waves-effect waves-light blue" [ngClass]="{'blue':!movieForm.get('movieLocation').value,'green':movieForm.get('movieLocation').value}">
+                                    Selecionar filme
+                                    <i class="material-icons right">local_movies</i>
+                                </label>
+                            </div>
+                            <input type="file" id="movie" accept="video/*" (change)="getMovie($event)" hidden>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="page-body">
+        <div class="row vertical-center">
+            <div class="col s12 center">
+                <video #moviePlayer controls preload="auto"></video>
+            </div>
+        </div>
+    </div>
+</form>

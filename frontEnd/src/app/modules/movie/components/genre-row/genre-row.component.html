@@ -1,0 +1,39 @@
+<div *ngIf="category.movies.length > 0" class="row">
+    <div class="col s12">
+        <div class="title">
+            <h4 class="mb-0 mt-0">
+                {{category.categoryName}}
+            </h4>
+        </div>
+    </div>
+    <div>
+        <div class="carousel col s12" #carousel>
+            <a class="carousel-item" *ngFor="let movie of category.movies" routerLink="/movie/{{movie.id}}" style="height: 100%;">
+                <img src="{{url}}/picture/{{movie.moviePicture}}" alt="{{movie.movieTitle}}">
+            </a>
+        </div>
+    </div>
+    <div class="col s12 controllers">
+        <div class="col s6">
+            <div class="left">
+                <button class="btn-floating waves-effect waves-light" (click)="prevMovie()">
+                    <i class="material-icons">chevron_left</i>
+                </button>
+            </div>
+        </div>
+        <div class="col s6">
+            <div class="right">
+                <button class="btn-floating waves-effect waves-light" (click)="nextMovie()">
+                    <i class="material-icons">chevron_right</i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col s12">
+        <div class="title right ">
+            <h6 class="mb-0 mt-0">
+                <!-- <a href="">Ver todos</a>-->
+            </h6>
+        </div>
+    </div>
+</div>

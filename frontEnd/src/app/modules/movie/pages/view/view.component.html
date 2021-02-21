@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<app-loading *ngIf="loading"></app-loading>
+<div [ngClass]="{'hidden':loading}" class="page-wrapper">
+    <div class="page-header">
+        <div class="row align-items-end text-center mb-0">
+            <section class="featured" #movieBackground>
+                <div class=" featured--vertical" *ngIf="movie">
+                    <div class="col s12 p-5 options">
+                        <a routerLink="" class="btn-floating waves-effect waves-light left  blue darken-4">
+                            <i class="material-icons right ">home</i>
+                        </a>
+                        <a *ngIf="user.userProfile ===0" routerLink="/movie/edit/{{movie.id}}" class="btn-floating waves-effect waves-light right  blue darken-4">
+                            <i class="material-icons right ">edit</i>
+                        </a>
+                    </div>
+                    <div class="featured--horizontal" style="min-height: 100vh;">
+                        <div class="featured--name ">
+                            {{movie.movieTitle}}
+                        </div>
+                        <div class="featured--info ">
+                            <div class="featured--points ">
+                                9,0
+                            </div>
+                            <div *ngIf="movie.movieYear > 2000" class="featured--year">
+                                {{movie.movieYear}}
+                            </div>
+                        </div>
+                        <div class="featured--description ">
+                            {{movie.movieDescription}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="page-body">
+        <div class="row vertical-center">
+            <div class="col s12 center">
+                <video #moviePlayer controls preload="auto"></video>
+            </div>
+        </div>
+    </div>
+</div>

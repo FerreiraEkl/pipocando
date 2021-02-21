@@ -1,0 +1,61 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="card horizontal">
+    <div class="card-image hide-on-small-only">
+        <img src="/assets/images/favicon.ico">
+    </div>
+    <div class="card-stacked">
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">person_outline</i>
+                    <input id="userLogin" type="text" formControlName="userLogin">
+                    <label for="userLogin">Login</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">person_outline</i>
+                    <input id="userFirstName" type="text" formControlName="userFirstName">
+                    <label for="userFirstName">Nome</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">person_outline</i>
+                    <input id="userLastName" type="text" formControlName="userLastName">
+                    <label for="userLastName">Sobrenome</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">mail_outline</i>
+                    <input id="userMail" type="email" formControlName="userMail">
+                    <label for="userMail">Email</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="userPassword" type="password" formControlName="userPassword">
+                    <label for="userPassword">Senha</label>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="input-field">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input id="userPasswordConfirm" type="password" formControlName="userPasswordConfirm">
+                    <label for="userPasswordConfirm">Confirmação de Senha</label>
+                </div>
+            </div>
+            <div class=" col s12 ">
+                <button [disabled]="!registerForm.valid" class="btn waves-effect waves-light right  blue darken-4 " type="submit " name="action ">
+                Cadastrar <i class="material-icons right ">send</i>
+              </button>
+            </div>
+        </div>
+        <div class="row center mb-0" style="padding: .75rem;">
+            <div class="col s12">
+                Já tem cadastro? <span><a routerLink="/login">Entre</a></span>
+            </div>
+        </div>
+    </div>
+</form>

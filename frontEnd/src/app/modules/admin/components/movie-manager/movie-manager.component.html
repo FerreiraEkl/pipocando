@@ -1,0 +1,39 @@
+<div class="card p-3">
+    <div class="row">
+        <div class="col s12">
+            <a class="waves-effect waves-light btn-small right red darken-2" routerLink="/movie/new">
+                <i class="material-icons left">movie</i>Cadastrar filme
+            </a>
+        </div>
+    </div>
+    <table class="striped highlight">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de lançamento</th>
+                <th class="hide-on-med-and-down">Criador</th>
+                <th class="hide-on-med-and-down">Criado em</th>
+                <th class="center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <td>{{movie.movieTitle}}</td>
+                <td class="hide-on-med-and-down">{{movie.movieYear}}</td>
+                <td class="hide-on-med-and-down">{{movie.creator.userFirstName}}</td>
+                <td>{{movie.createdAt |date:'MM dd aa'}}</td>
+                <td class="row" style="width: 150px;">
+                    <div class="col s4 center">
+                        <a class="btn-floating btn-small waves-effect waves-light blue" routerLink='/movie/edit/{{movie.id}}'><i class="material-icons">edit</i></a>
+                    </div>
+                    <div class="col s4 center">
+                        <a class="btn-floating btn-small waves-effect waves-light red" (click)="deleteMovie(movie.id)"><i class="material-icons">delete</i></a>
+                    </div>
+                    <div class="col s4 center">
+                        <a class="btn-floating btn-small waves-effect waves-light green" routerLink='/movie/{{movie.id}}'><i class="material-icons">arrow_forward</i></a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

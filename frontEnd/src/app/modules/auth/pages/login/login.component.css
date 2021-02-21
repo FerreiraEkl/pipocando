@@ -1,0 +1,27 @@
+input {
+    color: white;
+}
+
+.card.horizontal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .5);
+    padding: 2rem;
+}
+
+.card-stacked {
+    color: white;
+    max-width: 350px;
+}
+
+.card-image img {
+    max-width: 250px;
+    padding: 30px;
+}
+
+.card.horizontal .card-image {
+    align-self: center;
+}

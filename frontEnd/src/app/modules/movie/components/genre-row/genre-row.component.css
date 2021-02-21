@@ -1,0 +1,40 @@
+.carousel {
+    height: 330px;
+    perspective: 100vw;
+}
+
+.title {
+    color: white;
+    padding: 10px;
+}
+
+.controllers {
+    position: inherit;
+    height: 300px;
+    margin-top: -311px;
+    color: white;
+}
+
+.controllers .col {
+    margin-top: 120px;
+}
+
+.carousel-item {
+    width: 250px;
+    height: 330px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+button {
+    background-color: transparent;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: auto;
+    border-radius: 10px;
+}

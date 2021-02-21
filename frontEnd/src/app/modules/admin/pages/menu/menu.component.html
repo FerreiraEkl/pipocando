@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="rol">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs" #tabs style="background-color: transparent; color: white;">
+                        <li class="tab col"><a class="active" href="#product">Filmes</a></li>
+                        <li class="tab col"><a href="#requests">Solicitações</a></li>
+                        <li class="tab col"><a href="#customers">Usuários</a></li>
+                        <li class="tab col"><a href="#contact">Contatos</a></li>
+                    </ul>
+                </div>
+                <div id="product" class="col s12 pt-3">
+                    <app-movie-manager></app-movie-manager>
+                </div>
+                <div id="customers" class="col s12 pt-3">
+                    <app-user-manager></app-user-manager>
+                </div>
+                <div id="requests" class="col s12 pt-3">
+                    <app-requests-manager></app-requests-manager>
+                </div>
+                <div id="contact" class="col s12 pt-3">
+                    <app-contacts-manager></app-contacts-manager>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
